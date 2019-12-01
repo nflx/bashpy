@@ -1,0 +1,20 @@
+# install and test hello world example
+
+## build
+make pathname.h
+./configure
+make pathnames.h
+make -C examples/loadables hello
+
+## enable
+enable -f $PWD/hello hello
+<loaded...>
+
+## run
+hello
+Hello world
+
+## unload
+enable -d $PWD/hello hello
+hello
+<error>
