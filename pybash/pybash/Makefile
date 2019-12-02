@@ -1,10 +1,9 @@
+SHELL = bash
 PYB=/home/${USER}/.pyenv/versions/3.8.0/
 PC=$(PYB)bin/python3.8-config
 PYCFLAGS=$(shell $(PC) --cflags)
 PYLDFLAGS=$(shell $(PC) --ldflags --embed)
-
 BASH_SRC=/home/${USER}/slask/pybash/git/bash
-
 BASH_O_GCCFLAGS=-fPIC \
 		-DHAVE_CONFIG_H \
 		-DSHELL \
@@ -18,6 +17,7 @@ BASH_O_CFLAGS=-I$(BASH_SRC)/examples \
 	      -I$(BASH_SRC)/builtins \
 	      -I$(BASH_SRC)/include
 
+.PHONY: all
 all: pybash
 
 pybash.o:
@@ -43,13 +43,19 @@ pybash: pybash.o
 clean:
 	/bin/rm -f pybash pybash.o
 
+define _py
+# This multi-line variable needs some escaping
+# ex: f"{{var}}" won't work but f"{{{var}}}" will.
+import sys
+print("hello world from python " + sys.version)
+print(f"version_info:{{{sys.version_info}}}")
+endef
+export py = $(value _py)
 .PHONY: test
 test:
-	echo $$$$; \
-	bash -c 'echo $$$$; \
-	         eval "$$(pyenv init -)"; \
-		 pyenv shell 3.8.0; \
-		 enable -f ./pybash pybash && \
-		 pybash; \
-		 echo $$$$'; \
-	echo $$$$
+	@echo $$$$
+	@echo $$$$; \
+	  enable -f ./pybash pybash && \
+	  pybash "$$py" && \
+	  echo $$$$
+	@echo $$$$
