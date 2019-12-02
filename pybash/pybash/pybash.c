@@ -20,6 +20,7 @@
    You should have received a copy of the GNU General Public License
    along with Bash.  If not, see <http://www.gnu.org/licenses/>.
 */
+#define DISABLE_MALLOC_WRAPPERS 1
 
 #include <config.h>
 
@@ -33,6 +34,9 @@
 
 #define PY_SSIZE_T_CLEAN
 #include <Python.h>
+
+extern char **make_builtin_argv ();
+
 
 /*
 #int
@@ -71,32 +75,38 @@
 
    A builtin command returns EXECUTION_SUCCESS for success and
    EXECUTION_FAILURE to indicate failure. */
-
 int
-pybash_builtin (list)
-    WORD_LIST *list;
+pybash_main(argc, argv)
+int    argc;
+char   **argv;
 {
-    /*
-    char* pypath="pybash";
-    wchar_t *program = Py_DecodeLocale(pypath, NULL);
-    if (program == NULL) {
-        fprintf(stderr, "Fatal error: cannot decode argv[0]\n");
-        exit(1);
-    }
-    Py_SetProgramName(program);
-    */
-
-    //wchar_t const* pyhome = L"/home/flux/.pyenv/versions/3.8.0";
-    //Py_SetPythonHome(pyhome);
+    /*if (argc == 0)
+	    return 0;
+    if (argc != 1)
+	    return 0;
+	    */
     Py_Initialize();
-    PyRun_SimpleString("from time import time,ctime\n"
-                       "print('Today is', ctime(time()))\n");
+    /*PyRun_SimpleString("from time import time,ctime\n"
+                       "print('Today is', ctime(time()))\n");*/
+    PyRun_SimpleString(argv[1]);
     if (Py_FinalizeEx() < 0) {
         exit(120);
     }
-    //PyMem_RawFree(program);
     fflush (stdout);
     return (EXECUTION_SUCCESS);
+}
+
+
+int
+pybash_builtin (list)
+WORD_LIST *list;
+{
+    char **v;
+    int c, r;
+    v = make_builtin_argv(list, &c);
+    r = pybash_main(c, v);
+    free(v);
+    return r;
 }
 
 int
@@ -128,6 +138,6 @@ struct builtin pybash_struct = {
 	pybash_builtin,		/* function implementing the builtin */
 	BUILTIN_ENABLED,	/* initial flags for builtin */
 	pybash_doc,		/* array of long documentation strings. */
-	"pybash",		/* usage synopsis; becomes short_doc */
+	"pybash <pythoncode>",	/* usage synopsis; becomes short_doc */
 	0			/* reserved for internal use */
 };
