@@ -3,11 +3,7 @@ Bash loadable module that embeds python as builtin command pybash,
 taking python code as first argument.
 
 ## Requirements
-Exact requirements TBD, but essentially:
-- build-essentials
-- python dev (tested with: python 3.8.0 from pyenv)
-- bash sourcecode (tested with: bash 4.3 from github)
-- editing of some hardcoded paths in Makefile
+see ../INSTALL
 
 ## Based on 
 - The Embedding Python example here:

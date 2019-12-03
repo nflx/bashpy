@@ -1,0 +1,13 @@
+## Requirements
+Exact requirements TBD, but essentially:
+- build-essentials
+- python dev (tested with: python 3.8.0 from pyenv)
+- bash sourcecode (tested with: bash 4.3 from github)
+- editing of some hardcoded paths in Makefile
+
+# Things I do
+./getbashsrc.sh
+PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.0
+# make sure you have pyenv installed/cloned to ~/.pyenv (or symlink it there or change paths in Makefile)
+make -C pybash
+make -C pybash test
