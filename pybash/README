@@ -1,0 +1,76 @@
+# Description
+Bash loadable module that embeds python as builtin command pybash,
+taking python code as first argument.
+
+# State
+It's not very useful but just as the perl equivalent merely a proof of concept.
+It does not provide the python context any access to bash internals or even support passing it variables.
+
+# Based on 
+- The Embedding Python example here:
+  https://docs.python.org/3/extending/embedding.html#very-high-level-embedding
+
+- Bash examples/loadables/cat.c
+  https://github.com/bminor/bash/blob/master/examples/loadables/cat.c
+
+# Why
+I wanted to try building a loadable module after I got notion about the loadable module support in Bash by this video about Suidbash https://www.youtube.com/watch?v=-wGtxJ8opa8.
+
+There already exist loadable modules for other languages as:
+- luabash [https://github.com/alfredopalhares/LuaBash] 
+- perl [https://github.com/bminor/bash/tree/master/examples/loadables/perl].
+
+As I found out after some research, but I could not find any python equivalent. 
+
+# Install
+## Requirements
+Exact requirements TBD, but essentially:
+- build-essentials
+- python dev (tested with: python 3.8.0 from pyenv)
+- bash sourcecode (tested with: bash 4.3 from github)
+- editing of some hardcoded paths in Makefile
+
+## Things I do to make it run
+The `getbashsrc.sh` script downloads and configures bash 5.0, update it first to match the bash --version.
+```
+./getbashsrc.sh
+```
+
+Python needs to be built with `--enable-shared`, this is how do that using pyenv.
+```
+PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.0
+```
+
+Make sure you have pyenv installed/cloned to ~/.pyenv (or symlink it there or change paths in Makefile).
+```
+make -C pybash
+make -C pybash test
+```
+
+## Troubleshoot
+Build and test bash loadable `examples/loadables/hello` (a "hello world" example).
+```
+### build
+./configure
+make pathnames.h
+make -C examples/loadables hello
+
+### enable
+cd examples/loadables
+enable -f $PWD/hello hello
+
+### run
+hello
+Hello world
+
+### unload
+enable -d $PWD/hello hello
+hello
+<error>
+```
+
+## Future ideas
+- Support stdin (see `bash/examples/loadable/cat.c`).
+- Support passing variables somehow.
+- Pass the python code as file.
+- Make it easier to write code inline, compared to pybash/test[12].sh.
