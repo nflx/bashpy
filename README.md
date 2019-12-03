@@ -5,6 +5,12 @@ taking python code as first argument.
 # State
 It's not very useful but merely a proof of concept. As it doesn't provide the python context any access to bash internals or even support passing it variables.
 
+# Disclamer
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
 # Based on
 - The Embedding Python example here:
   https://docs.python.org/3/extending/embedding.html#very-high-level-embedding
@@ -104,11 +110,6 @@ GPLv3, See the file [COPYING](COPYING)
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 3 of the License, or
    (at your option) any later version.
-
-   This program is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-   GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <https://www.gnu.org/licenses/>.
