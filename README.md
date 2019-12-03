@@ -36,7 +36,7 @@ The `getbashsrc.sh` script downloads and configures bash 5.0, update it first to
 ./getbashsrc.sh
 ```
 
-Python needs to be built with `--enable-shared`, this is how do that using pyenv.
+Python needs to be built with `--enable-shared`, this is how to do it using pyenv.
 ```
 PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.0
 ```
@@ -96,7 +96,7 @@ make
 - Ian Pudney and LiveOverflow youtube channel for inspiring me to try and build a bash loadable builtin.
 
 # LICENSE
-GPLv3, See the file `COPYING`
+GPLv3, See the file [COPYING]
 
    Copyright (C) 2019  Emil Lind - `<emil@sys.nu>`
 
