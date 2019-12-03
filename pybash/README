@@ -6,7 +6,7 @@ taking python code as first argument.
 It's not very useful but just as the perl equivalent merely a proof of concept.
 It does not provide the python context any access to bash internals or even support passing it variables.
 
-# Based on 
+# Based on
 - The Embedding Python example here:
   https://docs.python.org/3/extending/embedding.html#very-high-level-embedding
 
