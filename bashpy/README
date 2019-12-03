@@ -30,7 +30,8 @@ Exact requirements TBD, but essentially:
 - bash sourcecode (tested with: bash 4.3 from github)
 - editing of some hardcoded paths in Makefile
 
-## Things I do to make it run
+## Prepare
+To build the loadable module we need bash sources.
 The `getbashsrc.sh` script downloads and configures bash 5.0, update it first to match the bash --version.
 ```
 ./getbashsrc.sh

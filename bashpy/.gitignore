@@ -1,4 +1,4 @@
 git
-pybash/pybash
-pybash/pybash.o
-today/today
+bashpy/bashpy
+bashpy/bashpy.o
+examples/embedded-python-today/today
