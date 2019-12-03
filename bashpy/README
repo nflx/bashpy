@@ -17,10 +17,10 @@ It does not provide the python context any access to bash internals or even supp
 I wanted to try building a loadable module after I got notion about the loadable module support in Bash by this video about Suidbash https://www.youtube.com/watch?v=-wGtxJ8opa8.
 
 There already exist loadable modules for other languages as:
-- luabash [https://github.com/alfredopalhares/LuaBash] 
+- luabash [https://github.com/alfredopalhares/LuaBash]
 - perl [https://github.com/bminor/bash/tree/master/examples/loadables/perl].
 
-As I found out after some research, but I could not find any python equivalent. 
+As I found out after some research, but I could not find any python equivalent.
 
 # Install
 ## Requirements
@@ -77,3 +77,21 @@ hello
 - Support stdin (see `bash/examples/loadable/cat.c`).
 - Pass the python code as file.
 - Make it easier to write code inline compared to examples.
+
+# LICENSE
+GPLv3, See the file `COPYING`
+
+   Copyright (C) 2019  Emil Lind <emil@sys.nu>
+
+   This program is free software: you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation, either version 3 of the License, or
+   (at your option) any later version.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program.  If not, see <https://www.gnu.org/licenses/>.
