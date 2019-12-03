@@ -3,8 +3,7 @@ Bash loadable module that embeds python as builtin command bashpy,
 taking python code as first argument.
 
 # State
-It's not very useful but just as the perl equivalent merely a proof of concept.
-It does not provide the python context any access to bash internals or even support passing it variables.
+It's not very useful but merely a proof of concept. As it doesn't provide the python context any access to bash internals or even support passing it variables.
 
 # Based on
 - The Embedding Python example here:
@@ -99,7 +98,7 @@ make
 # LICENSE
 GPLv3, See the file `COPYING`
 
-   Copyright (C) 2019  Emil Lind <emil@sys.nu>
+   Copyright (C) 2019  Emil Lind - `<emil@sys.nu>`
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
