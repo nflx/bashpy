@@ -16,8 +16,8 @@ It's not very useful but merely a proof of concept. As it doesn't provide the py
 I wanted to try building a loadable module after I got notion about the loadable module support in Bash by this video about Suidbash https://www.youtube.com/watch?v=-wGtxJ8opa8.
 
 There already exist loadable modules for other languages as:
-- luabash [https://github.com/alfredopalhares/LuaBash]
-- perl [https://github.com/bminor/bash/tree/master/examples/loadables/perl].
+- [luabash](https://github.com/alfredopalhares/LuaBash)
+- [perl](https://github.com/bminor/bash/tree/master/examples/loadables/perl)
 
 As I found out after some research, but I could not find any python equivalent.
 
@@ -91,14 +91,14 @@ make
 - Make it easier to write code inline compared to examples.
 
 # Credits
-- Luabash, for ideas on how to increase the usability.
-- Bash, for what would my life be without it. Also great docs and examples!
-- Ian Pudney and LiveOverflow youtube channel for inspiring me to try and build a bash loadable builtin.
+- [Luabash](https://github.com/alfredopalhares/LuaBash), for ideas on how to increase the usability.
+- [Bash](https://www.gnu.org/software/bash/), for what would my life be without it. Also great docs and examples!
+- [Ian Pudney](https://github.com/IanPudney) and [LiveOverflow](https://www.youtube.com/channel/UClcE-kVhqyiHCcjYwcpfj9w) for inspiring me to try and build a bash loadable builtin.
 
 # LICENSE
 GPLv3, See the file [COPYING](COPYING)
 
-   Copyright (C) 2019  Emil Lind - `<emil@sys.nu>`
+   Copyright (C) 2019  Emil Lind - `<github@sys.nu>`
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
