@@ -52,7 +52,9 @@ make -C bashpy test
 See `examples/*.sh` for some info on how to invoke bashpy from a script.
 
 ## Troubleshoot
-Build and test bash loadable `examples/loadables/hello` (a "hello world" example).
+
+### Bash loadable
+Build and test bash loadable `git/bash/examples/loadables/hello` (a "hello world" example).
 ```
 ### build
 ./configure
@@ -73,11 +75,26 @@ hello
 <error>
 ```
 
-## Future ideas
-- Support passing variables somehow.
-- Support stdin (see `bash/examples/loadable/cat.c`).
+### Python embedded
+Build and run python embedded example `examples/embedded-python-today/`.
+```
+cd examples/embedded-python-today/
+# Edit the Makefile to point to the correct python.
+make
+./today
+```
+
+# Future ideas
+- Support passing/getting variables.
+- Support stdin (see `git/bash/examples/loadable/cat.c`).
 - Pass the python code as file.
+- Support calling functions.
 - Make it easier to write code inline compared to examples.
+
+# Credits
+- Luabash, for ideas on how to increase the usability.
+- Bash, for what would my life be without it. Also great docs and examples!
+- Ian Pudney and LiveOverflow youtube channel for inspiring me to try and build a bash loadable builtin.
 
 # LICENSE
 GPLv3, See the file `COPYING`

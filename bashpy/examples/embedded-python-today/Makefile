@@ -6,7 +6,9 @@ PYLDFLAGS=$(shell $(PC) --ldflags --embed)
 all: today
 
 today:
-	gcc $(PYCFLAGS) -o today today.c $(PYLDFLAGS)
+	gcc $(PYCFLAGS) \
+	    -Wl,-rpath,$(PYB)/lib \
+	    -o today today.c $(PYLDFLAGS)
 
 .PHONY: clean
 clean:
