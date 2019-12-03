@@ -96,7 +96,7 @@ make
 - Ian Pudney and LiveOverflow youtube channel for inspiring me to try and build a bash loadable builtin.
 
 # LICENSE
-GPLv3, See the file [COPYING]
+GPLv3, See the file [COPYING](COPYING)
 
    Copyright (C) 2019  Emil Lind - `<emil@sys.nu>`
 
