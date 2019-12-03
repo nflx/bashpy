@@ -1,5 +1,5 @@
 #!/bin/bash
-enable -f ./pybash pybash
+enable -f ../pybash/pybash pybash
 read -r -d '' PY <<-'PY'
 import os
 if __name__ == '__main__':

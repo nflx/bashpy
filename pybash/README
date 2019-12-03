@@ -47,6 +47,9 @@ make -C pybash
 make -C pybash test
 ```
 
+## Examples
+See `examples/*.sh` for some info on how to invoke pybash from a script.
+
 ## Troubleshoot
 Build and test bash loadable `examples/loadables/hello` (a "hello world" example).
 ```
@@ -70,7 +73,7 @@ hello
 ```
 
 ## Future ideas
-- Support stdin (see `bash/examples/loadable/cat.c`).
 - Support passing variables somehow.
+- Support stdin (see `bash/examples/loadable/cat.c`).
 - Pass the python code as file.
-- Make it easier to write code inline, compared to pybash/test[12].sh.
+- Make it easier to write code inline compared to examples.

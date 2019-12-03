@@ -1,5 +1,5 @@
 #!/bin/bash
-enable -f ./pybash pybash
+enable -f ../pybash/pybash pybash
 read -r -d '' PY <<-'PY'
 if True:
   print("hello world")
