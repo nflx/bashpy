@@ -1,5 +1,5 @@
 # Description
-Bash loadable module that embeds python as builtin command pybash,
+Bash loadable module that embeds python as builtin command bashpy,
 taking python code as first argument.
 
 # State
@@ -43,12 +43,12 @@ PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.0
 
 Make sure you have pyenv installed/cloned to ~/.pyenv (or symlink it there or change paths in Makefile).
 ```
-make -C pybash
-make -C pybash test
+make -C bashpy
+make -C bashpy test
 ```
 
 ## Examples
-See `examples/*.sh` for some info on how to invoke pybash from a script.
+See `examples/*.sh` for some info on how to invoke bashpy from a script.
 
 ## Troubleshoot
 Build and test bash loadable `examples/loadables/hello` (a "hello world" example).

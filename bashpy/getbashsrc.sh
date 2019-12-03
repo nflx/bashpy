@@ -1,4 +1,4 @@
-mkdir git
+mkdir git || true
 git -C git clone https://github.com/bminor/bash.git
 echo "run `bash --version` and `git tags` and checkout the closes to right tag or branch with `git checkout <tag>`"
 echo "by default we will checkout bash-5.0"

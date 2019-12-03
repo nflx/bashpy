@@ -3,7 +3,7 @@ PYB=/home/${USER}/.pyenv/versions/3.8.0/
 PC=$(PYB)bin/python3.8-config
 PYCFLAGS=$(shell $(PC) --cflags)
 PYLDFLAGS=$(shell $(PC) --ldflags --embed)
-BASH_SRC=/home/${USER}/slask/pybash/git/bash
+BASH_SRC=/home/${USER}/slask/bashpy/git/bash
 BASH_O_GCCFLAGS=-fPIC \
 		-DHAVE_CONFIG_H \
 		-DSHELL \
@@ -18,30 +18,30 @@ BASH_O_CFLAGS=-I$(BASH_SRC)/examples \
 	      -I$(BASH_SRC)/include
 
 .PHONY: all
-all: pybash
+all: bashpy
 
-pybash.o:
+bashpy.o:
 	export LD_RUN_PATH="$(PYB)/lib" && \
 	gcc $(BASH_O_GCCFLAGS) \
 	    $(BASH_O_CFLAGS) \
 	    $(PYCFLAGS) \
-	    -c -o pybash.o pybash.c
+	    -c -o bashpy.o bashpy.c
 
-pybash: pybash.o
+bashpy: bashpy.o
 	gcc -shared \
-	    -Wl,-soname,pybash \
+	    -Wl,-soname,bashpy \
 	    -L./lib/termcap \
 	    -Wl,-rpath,$(PYB)/lib \
 	    $(PYCFLAGS) \
 	    -Wl,-no-as-needed \
 	    $(PYLDFLAGS) \
 	    -Wl,-as-needed \
-	    -o pybash \
-	    pybash.o
+	    -o bashpy \
+	    bashpy.o
 
 .PHONY: clean
 clean:
-	/bin/rm -f pybash pybash.o
+	/bin/rm -f bashpy bashpy.o
 
 define _py
 # This multi-line variable needs some escaping
@@ -55,7 +55,7 @@ export py = $(value _py)
 test:
 	@echo $$$$
 	@echo $$$$; \
-	  enable -f ./pybash pybash && \
-	  pybash "$$py" && \
+	  enable -f ./bashpy bashpy && \
+	  bashpy "$$py" && \
 	  echo $$$$
 	@echo $$$$

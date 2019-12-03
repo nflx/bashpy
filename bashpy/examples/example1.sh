@@ -1,7 +1,7 @@
 #!/bin/bash
-enable -f ../pybash/pybash pybash
+enable -f ../bashpy/bashpy bashpy
 read -r -d '' PY <<-'PY'
 if True:
   print("hello world")
 PY
-pybash "$PY"
+bashpy "$PY"
