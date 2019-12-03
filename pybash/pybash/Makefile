@@ -30,12 +30,12 @@ pybash.o:
 pybash: pybash.o
 	gcc -shared \
 	    -Wl,-soname,pybash \
+	    -L./lib/termcap \
 	    -Wl,-rpath,$(PYB)/lib \
 	    $(PYCFLAGS) \
 	    -Wl,-no-as-needed \
 	    $(PYLDFLAGS) \
 	    -Wl,-as-needed \
-	    -L./lib/termcap \
 	    -o pybash \
 	    pybash.o
 
