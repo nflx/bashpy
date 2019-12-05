@@ -5,7 +5,7 @@ taking python code as first argument.
 # State
 It's not very useful but merely a proof of concept. As it doesn't provide the python context any access to bash internals or even support passing it variables.
 
-# Disclamer
+# Disclaimer
 This program is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
